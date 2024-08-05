@@ -13,6 +13,7 @@ app.use(json())
 // global router
 app.use('/auth',authRouter)
 
+// global erorr
 app.use(globalErrorMiddleware)
 
 export default app

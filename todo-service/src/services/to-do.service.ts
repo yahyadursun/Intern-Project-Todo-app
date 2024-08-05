@@ -1,6 +1,5 @@
 import { User } from "../@types"
 import { getCouchbaseConnection } from "../db"
-import APIError from "../errors/APIError"
 
  export const getUserById = async (id:string) => {
     try {

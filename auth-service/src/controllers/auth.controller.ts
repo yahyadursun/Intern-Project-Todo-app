@@ -56,7 +56,7 @@ export const refreshToken = async (req:Request,res:Response,next:NextFunction) =
         
         const user = await UserService.getUserById(verifiedRefreshToken.id)
 
-        delete user.password
+        delete user.password // delete password info before generateAccessToken
 
         const accessToken = TokenService.generateAccessToken(user)
         

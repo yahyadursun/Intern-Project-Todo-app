@@ -9,11 +9,11 @@ export const addOrUpdateTodo = async (req: Request, res: Response, next: NextFun
     
     try {
         const user_content = await getUserById(userId);
-
+        // Checking user data
         if (!user_content) {
             return next(new APIError(404,'DATA_NOT_FOUND','USER NOT FOUND'))
         }
-
+        // Array configuration
         if (!Array.isArray(user_content.todos)) {
             user_content.todos = [];
         }
@@ -36,7 +36,9 @@ export const addOrUpdateTodo = async (req: Request, res: Response, next: NextFun
             }
             return todo;
         }).filter((todo: Todo | null): todo is Todo => todo !== null);
-
+        //`(todo: Todo | null): todo is Todo => todo !== null expression provides type guard in TypeScript and null values ​​are removed from the array. 
+        //only items of type Todo are returned.
+        
         if (!todoExists && !isCompleted) {
             user_content.todos.push({ id, text, isCompleted, expireDate });
         }
@@ -51,7 +53,7 @@ export const addOrUpdateTodo = async (req: Request, res: Response, next: NextFun
 
 
 export const removeTodo = async (req: Request, res: Response, next: NextFunction) => {
-    const { userId } = req.body; // Eğer userId URL'den geliyorsa, req.params.userId olarak alın.
+    const { userId } = req.body; 
     const { id } = req.params;
 
     try {
@@ -70,7 +72,7 @@ export const removeTodo = async (req: Request, res: Response, next: NextFunction
         user_content.todos = user_content.todos.map((todo: Todo) => {
             if (String(todo.id) === String(id)) {
                 todoFound = true;
-                return { ...todo, isCompleted: true, updatedAt: new Date() }; // Silinmiş olarak işaretle
+                return { ...todo, isCompleted: true, updatedAt: new Date() }; // Mark as deleted
             }
             return todo;
         });
