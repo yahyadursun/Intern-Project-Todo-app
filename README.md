@@ -37,6 +37,7 @@ Clean microservices architecture using `Node / Typescript`, `Express.js`, and `C
 
 - Node.js (16.x)
 - Couchbase Server
+- Docker & Docker Compose
 
 ### Setup
 
@@ -59,8 +60,40 @@ Clean microservices architecture using `Node / Typescript`, `Express.js`, and `C
     npm install
     ```
 
+3. Start Couchbase using Docker Compose.
 
-3. Start each service.
+    Create a `docker-compose.yml` file with the following content:
+
+    ```yaml
+    version: "3.7"
+
+    services:
+      couchbase:
+        container_name: couchbase_todo
+        image: couchbase:latest
+        ports:
+          - "8091-8096:8091-8096" # UI ports
+          - "11210-11211:11210-11211" # Engine ports
+        environment:
+          COUCHBASE_ADMINISTRATOR_USERNAME: Administrator
+          COUCHBASE_ADMINISTRATOR_PASSWORD: 123456
+        volumes:
+          - couchbase_data:/opt/couchbase/var
+          - couchbase_config:/opt/couchbase/etc
+
+    volumes:
+      couchbase_data:
+      couchbase_config:
+    ```
+
+    Run the following command to start Couchbase:
+
+    ```bash
+    docker-compose up -d
+    ```
+
+
+4. Start each service.
 
     In separate terminals, run the following commands:
 
