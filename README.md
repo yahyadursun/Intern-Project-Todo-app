@@ -15,6 +15,7 @@ Clean microservices architecture using `Node / Typescript`, `Express.js`, and `C
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
 - [Endpoints](#endpoints)
+- [Testing With Postman](#testing-with-postman)
 - [License](#license)
 
 ## Features
