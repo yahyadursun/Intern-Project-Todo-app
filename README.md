@@ -110,17 +110,6 @@ Clean microservices architecture using `Node / Typescript`, `Express.js`, and `C
     cd ../gateway-service
     npm start
     ```
-## Testing With Postman
-### Request Example
-1. Creat a Post request with ```bash http://localhost:3005/auth/signup ```
-2. Seletect Body -> raw and JSON
-3. ```http {
-    "id":"6",
-    "email":"yahya5@gmail.com",
-    "password": "123456",
-    "name":"yahya5",
-    "lastname":"dursun"
-}
 
 
 ## Endpoints
@@ -148,6 +137,22 @@ Base URL: `http://localhost:3010/todo`
 Base URL: `http://localhost:3000`
 
 - Routes requests to the appropriate service based on the URL prefix (`/auth` or `/todo`)
+
+## Testing With Postman
+
+### Request Example
+1. Creat a Post request with ```bash http://localhost:3005/auth/signup ```
+2. Seletect Body -> raw and JSON
+3. example request body.
+    ```http 
+    {
+        "id":"6",
+        "email":"yahya5@gmail.com",
+        "password": "123456",
+        "name":"yahya5",
+        "lastname":"dursun"
+    }
+    ```
 
 ## License
 
