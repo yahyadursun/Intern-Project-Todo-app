@@ -92,6 +92,9 @@ Clean microservices architecture using `Node / Typescript`, `Express.js`, and `C
     ```bash
     docker-compose up -d
     ```
+    <span style="color: red;">**Note:** Ensure that you create a collection named **users** under your couchbase scope</span>
+
+
 
 
 4. Start each service.
