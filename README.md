@@ -143,14 +143,14 @@ Base URL: `http://localhost:3000`
 ### Request Example
 1. Creat a Post request with ```bash http://localhost:3005/auth/signup ```
 2. Seletect Body -> raw and JSON
-3. example request body.
+3. Request body example.
     ```http 
     {
-        "id":"6",
-        "email":"yahya5@gmail.com",
-        "password": "123456",
-        "name":"yahya5",
-        "lastname":"dursun"
+        "id":"1",
+        "email":"example@gmail.com",
+        "password": "examplepassword",
+        "name":"examplename",
+        "lastname":"examplesurname"
     }
     ```
 
