@@ -1,4 +1,3 @@
-// frontend/src/components/Todo/TodoItem.tsx
 import React from 'react';
 
 interface Todo {

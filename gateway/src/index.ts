@@ -2,10 +2,13 @@
 import express from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import { authMiddleware } from './middlewares/auth.middleware';
+import cors from 'cors';
 
+// cors for front end fetching 
 
 const app = express();
 
+app.use(cors());
 
 
 app.use('/auth', createProxyMiddleware({ 

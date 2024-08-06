@@ -10,11 +10,19 @@ const Login: React.FC = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(''); // Clear previous errors
     try {
       await login(email, password);
       navigate('/todos');
-    } catch (err) {
-      setError('Invalid email or password');
+    } catch (err: any) {
+      console.error('Login error:', err);
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);
+      } else if (err.message) {
+        setError(err.message);
+      } else {
+        setError('An unknown error occurred');
+      }
     }
   };
 
