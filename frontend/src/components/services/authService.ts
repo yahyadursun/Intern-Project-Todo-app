@@ -3,13 +3,14 @@
 const API_URL = 'http://localhost:3000/auth';
 
 export const login = async (email: string, password: string) => {
-  const response = await fetch(`${API_URL}/signIn`, {
+  const response = await fetch(`${API_URL}/signin`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ email, password }),
   });
+  console.log(`${API_URL}/signin`);
   
   const data = await response.json();
   

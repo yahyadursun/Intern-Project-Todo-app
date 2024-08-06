@@ -2,21 +2,19 @@
 import express from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import { authMiddleware } from './middlewares/auth.middleware';
-import cors from 'cors';
+
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+
 
 app.use('/auth', createProxyMiddleware({ 
-  target: 'http://localhost:3005', 
-  changeOrigin: true 
+  target: "http://localhost:3005"
 }));
 
 app.use('/todo', authMiddleware, createProxyMiddleware({ 
-  target: 'http://localhost:3010', 
-  changeOrigin: true 
+  target: 'http://localhost:3010'
+
 }));
 
 app.listen(3000, () => {
